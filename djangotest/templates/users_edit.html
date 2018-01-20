@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+    <h1>用户信息</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="t1">用户名称</label>
+            <input id="t1" type="text" class="form-control" name="username" value="{{ obj.user}}">
+            <input id="t1" type="text" class="form-control" name="password" value="{{ obj.pwd }}">
+            <input id="t1" type="text" class="form-control" name="age" value="{{ obj.age }}">
+        </div>
+        <input type="submit" value="修改" class="btn btn-default">
+    </form>
+</div>
+{% endblock %}

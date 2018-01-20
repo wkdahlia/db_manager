@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container" style="width: 80%">
+    <h1>用户列表</h1>
+    <div style="margin: 5px 0">
+        <a href="/myweb/users_add/" class="btn btn-success">添加</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+           <tr>
+               <th>id</th>
+               <th>用户名</th>
+               <th>密码</th>
+               <th>年龄</th>
+               <th>操作</th>
+           </tr>
+        </thead>
+        <tbody>
+            {% for obj in cur_list %}
+            <tr>
+                <td>{{ obj.id }}</td>
+                <td>{{ obj.user }}</td>
+                <td>{{ obj.pwd }}</td>
+                <td>{{ obj.age }}</td>
+                <td>
+                    <a href="/myweb/user_edit/?nid={{ obj.id }}">编辑</a>
+                    |
+                    <a href="/myweb/user_del/?nid={{ obj.id }}">删除</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+    <ul class="pagination">
+        {% if cur_list.has_previous %}
+            <li><a href="?page={{ cur_list.previous_page_number }}">&laquo;</a></li>
+        {% endif %}
+        {% for pg in cur_list.paginator.page_range %}
+            {% if cur_list.number == pg %}
+                <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+            {% else %}
+                <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if cur_list.has_next %}
+            <li><a href="?page={{ cur_list.next_page_number }}">&raquo;</a></li>
+        {% endif %}
+    </ul>
+    </div>
+</div>
+{% endblock %}

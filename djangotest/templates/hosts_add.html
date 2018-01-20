@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+    <h1>添加主机</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="t1">主机名称</label>
+            <input id="t1" type="text" class="form-control" name="hostname" placeholder="主机名">
+            <input id="t1" type="text" class="form-control" name="ip" placeholder="ip地址">
+            <select id="t1" type="text" class="form-control" name="depart">
+                {% for obj in depart_list%}
+                    <option>{{ obj.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="添加" class="btn btn-default">
+    </form>
+   </div>
+{% endblock %}

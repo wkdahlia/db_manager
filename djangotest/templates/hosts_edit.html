@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+    <h1>编辑部门</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="t1">主机名称</label>
+            <input id="t1" type="text" class="form-control" name="hostname" value="{{ obj.hostname}}">
+            <input id="t1" type="text" class="form-control" name="ip" value="{{ obj.ip }}">
+            <select id="t1" type="text" class="form-control" name="depart">
+                {% for dobj in depart_list%}
+                    {% if dobj.title == obj.depart.title%}
+                        <option selected>{{ dobj.title }}</option>
+                    {% else %}
+                        <option>{{ dobj.title }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="修改" class="btn btn-default">
+    </form>
+</div>
+{% endblock %}
